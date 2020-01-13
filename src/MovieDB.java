@@ -52,7 +52,12 @@ public class MovieDB {
 
     // sorts movies by length using comparable
     public void sortMovies() {
-        Collections.sort(movieList);
+        if (movieList.size() > 0) {
+            Collections.sort(movieList);
+        } else {
+            System.out.println("No movies to sort!");
+        }
+
     }
 
     // opens corresponding letterboxd search to avoid conflicting titles

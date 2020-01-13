@@ -22,16 +22,16 @@ public class Main {
             input = scanner.nextInt();
             switch (input) {
                 case 1:
-                    database.addMovie(movieAdded(database));
+                    addMovieToDB(database, movieAdded());
                     break;
                 case 2:
                     removeMovie(database);
                     break;
                 case 3:
-                    System.out.println(database.randomMovie());
+                    getRandomMovie(database);
                     break;
                 case 4:
-                    System.out.println(database);
+                    printDB(database);
                     break;
                 case 5:
                     deleteAll(database);
@@ -43,9 +43,23 @@ public class Main {
         }
     }
 
+    public static void printMenu() {
+        System.out.println();
+        System.out.println("1. Add a movie");
+        System.out.println("2. Remove a movie");
+        System.out.println("3. Pick a random movie");
+        System.out.println("4. List all movies");
+        System.out.println("5. Delete all movies");
+        System.out.println("6. Open movie website");
+        System.out.println("0. Exit");
+    }
 
+    public static void addMovieToDB(MovieDB db,Movie movie) {
+        db.addMovie(movie);
+        db.sortMovies();
+    }
 
-    public static Movie movieAdded(MovieDB db) {
+    public static Movie movieAdded() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("What movie would you like to add?");
@@ -57,9 +71,7 @@ public class Main {
             throw new IllegalArgumentException("Movie length can't be negative or 0!");
         }
 
-        Movie movie = new Movie(name,length);
-
-        return movie;
+        return new Movie(name,length);
     }
 
     public static void removeMovie(MovieDB db) {
@@ -68,6 +80,14 @@ public class Main {
         String movieName = scanner.nextLine();
 
         db.removeMovie(movieName);
+    }
+
+    public static void getRandomMovie(MovieDB db) {
+        System.out.println(db.randomMovie());
+    }
+
+    public static void printDB(MovieDB db) {
+        System.out.println(db);;
     }
 
     public static void deleteAll(MovieDB db) {
@@ -96,14 +116,5 @@ public class Main {
         }
     }
 
-    public static void printMenu() {
-        System.out.println();
-        System.out.println("1. Add a movie");
-        System.out.println("2. Remove a movie");
-        System.out.println("3. Pick a random movie");
-        System.out.println("4. List all movies");
-        System.out.println("5. Delete all movies");
-        System.out.println("6. Open movie website");
-        System.out.println("0. Exit");
-    }
+
 }
