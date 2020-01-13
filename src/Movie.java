@@ -32,6 +32,9 @@ public class Movie implements Comparable<Movie>{
     // gets time in 1:31 format rather than 91 minutes format
     public String getRealTime() {
         String realTime = this.getLength() / 60 + ":" + this.length % 60;
+        if (this.getLength() % 60 == 0) {
+            realTime += '0';
+        }
         return realTime;
     }
 

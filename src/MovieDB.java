@@ -1,14 +1,12 @@
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
 // holds movies in an array list
 public class MovieDB {
     private ArrayList<Movie> movieList = new ArrayList<>();
-
 
     public MovieDB() {
 
@@ -42,6 +40,16 @@ public class MovieDB {
         }
     }
 
+    public void removeMovie(String title) {
+        for (Movie movie : movieList) {
+            if (movie.getName().equals(title)) {
+                movieList.remove(movie);
+                System.out.println("Movie successfully removed");
+                break;
+            }
+        }
+    }
+
     // sorts movies by length using comparable
     public void sortMovies() {
         Collections.sort(movieList);
@@ -63,6 +71,16 @@ public class MovieDB {
                 }
             }
         }
+        System.out.println("No movies yet!");
+        return false;
+    }
+
+    public boolean findMovie (String title, int length) {
+        for (Movie movie : movieList) {
+            if (title.equals(movie.getName()) && movie.getLength() == length) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -71,6 +89,19 @@ public class MovieDB {
         Random random = new Random();
         int pick = random.nextInt(movieList.size() -1);
         return movieList.get(pick);
-
     }
+
+    public void reset() {
+        movieList.clear();
+    }
+
+    public Movie findMovie(String title) {
+        for(Movie movie : movieList) {
+            if (title.equals(movie.getName())) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
 }
