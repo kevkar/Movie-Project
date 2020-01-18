@@ -2,18 +2,10 @@ public class Movie implements Comparable<Movie>{
 
     private String name;
     private int length;
-    private int year;
-
-    public Movie(String name, int length, int year) {
-        this.name = name;
-        this.length = length;
-        this.year = year;
-    }
 
     public Movie(String name, int length) {
         this.name = name;
         this.length = length;
-        this.year = 0;
     }
 
     public String getName() {
@@ -22,11 +14,6 @@ public class Movie implements Comparable<Movie>{
 
     public int getLength() {
         return this.length;
-    }
-
-
-    public int getYear() {
-        return this.year;
     }
 
     // gets time in 1:31 format rather than 91 minutes format

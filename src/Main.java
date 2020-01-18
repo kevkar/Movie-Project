@@ -9,10 +9,10 @@ public class Main {
 
         MovieDB database = new MovieDB();
 
-        database.addMovie( new Movie("Eternal Sunshine of the Spotless Mind",108,2004));
-        database.addMovie(new Movie("Animal House",109,1978));
-        database.addMovie(new Movie("Caddyshack",98,1980));
-        database.addMovie(new Movie("Alien", 117,1979));
+        database.addMovie( new Movie("Eternal Sunshine of the Spotless Mind",108));
+        database.addMovie(new Movie("Animal House",109));
+        database.addMovie(new Movie("Caddyshack",98));
+        database.addMovie(new Movie("Alien", 117));
 
         int input = -1;
 
@@ -43,6 +43,7 @@ public class Main {
         }
     }
 
+    // prints out menu
     public static void printMenu() {
         System.out.println();
         System.out.println("1. Add a movie");
@@ -54,11 +55,14 @@ public class Main {
         System.out.println("0. Exit");
     }
 
+    // options 1 add movie to database
     public static void addMovieToDB(MovieDB db,Movie movie) {
         db.addMovie(movie);
         db.sortMovies();
+        System.out.println(movie.getName() + " successfully added.");
     }
 
+    //option 1 add movie input taker
     public static Movie movieAdded() {
         Scanner scanner = new Scanner(System.in);
 
@@ -74,6 +78,7 @@ public class Main {
         return new Movie(name,length);
     }
 
+    // option 2 removes movie from database
     public static void removeMovie(MovieDB db) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What movie would you like to delete?");
@@ -82,14 +87,17 @@ public class Main {
         db.removeMovie(movieName);
     }
 
+    //option 3 prints out a random movie
     public static void getRandomMovie(MovieDB db) {
         System.out.println(db.randomMovie());
     }
 
+    // option 4 shows all movies in db
     public static void printDB(MovieDB db) {
         System.out.println(db);;
     }
 
+    // option 5 resets the movie db
     public static void deleteAll(MovieDB db) {
         Scanner scanner = new Scanner(System.in);
 
@@ -103,6 +111,7 @@ public class Main {
         }
     }
 
+    // option 6 opens search for movie on letterboxd.com
     public static void openSite(MovieDB db) throws IOException {
         Scanner scanner = new Scanner(System.in);
         String title;
