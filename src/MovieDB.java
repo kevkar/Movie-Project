@@ -45,17 +45,11 @@ public class MovieDB {
         }
     }
 
-    // opens corresponding letterboxd search to avoid conflicting titles
-    public void openMovieSite(Movie movie) throws IOException {
-        String link = "https://letterboxd.com/search/" ;
-        link += movie.searchedName();
-        java.awt.Desktop.getDesktop().browse(URI.create(link));
-    }
-
     // picks a random movie
     public Movie randomMovie() {
         Random random = new Random();
-        int pick = random.nextInt(movieList.size() -1);
+        int pick = random.nextInt(movieList.size() );
+
         return movieList.get(pick);
     }
 

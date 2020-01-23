@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.net.URI;
+
 public class Movie implements Comparable<Movie>{
 
     private String name;
@@ -6,6 +9,11 @@ public class Movie implements Comparable<Movie>{
     public Movie(String name, int length) {
         this.name = name;
         this.length = length;
+    }
+
+    Movie(String name) {
+        this.name = name;
+        this.length = 0;
     }
 
     public String getName() {
@@ -23,6 +31,13 @@ public class Movie implements Comparable<Movie>{
             realTime += '0';
         }
         return realTime;
+    }
+
+    // opens corresponding letterboxd search to avoid conflicting titles
+    public void openMovieSite(Movie movie) throws IOException {
+        String link = "https://letterboxd.com/search/" ;
+        link += movie.searchedName();
+        java.awt.Desktop.getDesktop().browse(URI.create(link));
     }
 
     // prints out movie length + movie name
