@@ -7,11 +7,7 @@ public class MovieSiteListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        Movie movie = new Movie(MovieRecordListener.nameField().getText());
-        try {
-            movie.openMovieSite(movie);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        MovieDB db = MovieRecordListener.getDB();
+        db.letterboxd();
     }
 }

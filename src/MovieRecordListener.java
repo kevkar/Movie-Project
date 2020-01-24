@@ -22,19 +22,10 @@ public class MovieRecordListener implements ActionListener {
         return nameField;
     }
 
+    public static JTextField IDField() {return idField;}
+
     @Override
     public void actionPerformed(ActionEvent ae) {
-        try {
-            Movie movie = new Movie(nameField.getText(), Integer.parseInt(idField.getText()));
-            db.addMovie(movie);
-        } catch (Exception e) {
-            if (idField.getText().equals("")) {
-                System.out.println("Please enter length.");
-            } else {
-                System.out.println("Invalid Movie");
-            }
-        }
-        db.sortMovies();
-        System.out.println(db);
+        db.addMovieGUI();
     }
 }

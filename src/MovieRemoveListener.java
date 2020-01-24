@@ -11,6 +11,7 @@ public class MovieRemoveListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         MovieDB db = MovieRecordListener.getDB();
-        db.removeMovie(MovieRecordListener.nameField().getText());
+        String title = MovieRecordListener.nameField().getText();
+        db.removeMovie(title);
     }
 }

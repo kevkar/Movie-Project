@@ -6,6 +6,7 @@ public class Movie implements Comparable<Movie>{
     private String name;
     private int length;
 
+    // two constructors, one for name and length and one for just name
     public Movie(String name, int length) {
         this.name = name;
         this.length = length;
@@ -16,6 +17,7 @@ public class Movie implements Comparable<Movie>{
         this.length = 0;
     }
 
+    // two getters for name and length
     public String getName() {
         return this.name;
     }
@@ -33,12 +35,21 @@ public class Movie implements Comparable<Movie>{
         return realTime;
     }
 
-    // opens corresponding letterboxd search to avoid conflicting titles
+
+    // replaces spaces with dashes for searching on letterboxd.com
+    public String searchedName() {
+        return this.name.replace(' ','+');
+    }
+
+    // opens corresponding letterboxd search
+    // does not open specific movie's site bc of duplicates
     public void openMovieSite(Movie movie) throws IOException {
         String link = "https://letterboxd.com/search/" ;
         link += movie.searchedName();
         java.awt.Desktop.getDesktop().browse(URI.create(link));
     }
+
+
 
     // prints out movie length + movie name
     @Override
@@ -52,8 +63,5 @@ public class Movie implements Comparable<Movie>{
         return this.getRealTime().compareTo(movie.getRealTime());
     }
 
-    // replaces spaces with dashes for searching on letterboxd.com
-    public String searchedName() {
-        return this.name.replace(' ','+');
-    }
+
 }
