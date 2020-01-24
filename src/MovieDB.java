@@ -12,7 +12,12 @@ public class MovieDB {
 
     // adds movies to the array list
     public void addMovie(Movie movie) {
-        movieList.add(movie);
+
+        if (movieDuplicate(movie.getName())) {
+            System.out.println("Movie Already in database");
+        } else {
+            movieList.add(movie);
+        }
     }
 
     // prints out all movies in db
@@ -54,7 +59,9 @@ public class MovieDB {
     }
 
     // clears the entire movie list
-    public void reset() { movieList.clear();
+    public void reset() {
+        movieList.clear();
+        System.out.println("Movie database successfully cleared");
     }
 
     public Movie findMovie(String title) {
@@ -64,6 +71,15 @@ public class MovieDB {
             }
         }
         return null;
+    }
+
+    public boolean movieDuplicate(String title) {
+        for (Movie movie : movieList) {
+            if (title.equals(movie.getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

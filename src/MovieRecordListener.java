@@ -12,7 +12,6 @@ public class MovieRecordListener implements ActionListener {
         this.movieRecord = movieRecord;
         this.nameField = nameField;
         this.idField = idField;
-
     }
 
     public static MovieDB getDB() {
@@ -29,9 +28,12 @@ public class MovieRecordListener implements ActionListener {
             Movie movie = new Movie(nameField.getText(), Integer.parseInt(idField.getText()));
             db.addMovie(movie);
         } catch (Exception e) {
-            System.out.println("Invalid Movie");
+            if (idField.getText().equals("")) {
+                System.out.println("Please enter length.");
+            } else {
+                System.out.println("Invalid Movie");
+            }
         }
-
         db.sortMovies();
         System.out.println(db);
     }

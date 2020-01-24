@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.util.Random;
 import javax.swing.*;
 
 public class UserInterface implements Runnable {
@@ -84,6 +83,9 @@ public class UserInterface implements Runnable {
         addButton.addActionListener(listener);
         randomMovieButton.addActionListener(new RandomMovieListener(movieRecord));
         movieInfoButton.addActionListener(new MovieSiteListener(movieRecord));
+        removeButton.addActionListener(new MovieRemoveListener(movieRecord));
+        listMovies.addActionListener(new MovieListListener(movieRecord));
+        clearDB.addActionListener(new MovieClearAllListener(movieRecord));
 
         container.add(nameText);
         container.add(nameField);

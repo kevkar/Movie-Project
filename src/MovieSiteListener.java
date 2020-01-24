@@ -3,8 +3,7 @@ import java.io.IOException;
 
 public class MovieSiteListener implements ActionListener {
 
-    public MovieSiteListener(MovieRecord movieRecord) {
-    }
+    public MovieSiteListener(MovieRecord movieRecord) { }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
