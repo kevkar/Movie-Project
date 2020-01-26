@@ -7,8 +7,19 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
 
-        UserInterface ui = new UserInterface();
-        SwingUtilities.invokeLater(ui);
+        //UserInterface ui = new UserInterface();
+        //SwingUtilities.invokeLater(ui);
+
+        MovieTest movieTest = new MovieTest();
+
+        //movieTest.addMovieTest();
+        //movieTest.removeMovieTest();
+        //movieTest.sortMovieTest();
+        //movieTest.randomTest();
+        //SmovieTest.movieSiteTest();
+        movieTest.removeAllTest();
+
+
     }
 
 //        Scanner scanner = new Scanner(System.in);

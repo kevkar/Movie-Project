@@ -20,8 +20,10 @@ public class MovieDB {
             System.out.println("Movie " + "'" + movie.getName() + "'" + " already in database.");
         } else if (movie.getLength() > 400) {
             System.out.println("Why are you trying to watch a 6 hour movie c'mon.");
-        } else if(movie.getLength() < 5){
+        } else if(movie.getLength() < 5) {
             System.out.println("That is not a real length");
+        } else if (movie.getName().equals("")) {
+            System.out.println("You forgot to enter a movie");
         } else {
             movieList.add(movie);
             System.out.println("Movie " + '"' + movie.getName() + '"' + " successfully added.");
@@ -126,7 +128,7 @@ public class MovieDB {
         if (boxText.isEmpty()) {
             System.out.println("Try typing something first...");
         } else {
-            Movie movie = new Movie(boxText);
+            Movie movie = new Movie(boxText,0);
             try {
                 movie.openMovieSite(movie);
             } catch (IOException e) {

@@ -12,11 +12,6 @@ public class Movie implements Comparable<Movie>{
         this.length = length;
     }
 
-    Movie(String name) {
-        this.name = name;
-        this.length = 0;
-    }
-
     // two getters for name and length
     public String getName() {
         return this.name;
@@ -29,8 +24,12 @@ public class Movie implements Comparable<Movie>{
     // gets time in 1:31 format rather than 91 minutes format
     public String getRealTime() {
         String realTime = this.getLength() / 60 + ":" + this.length % 60;
+        StringBuilder sb = new StringBuilder(realTime);
         if (this.getLength() % 60 == 0) {
-            realTime += '0';
+           realTime = sb.append('0').toString();
+        }
+        if ((this.getLength() % 60) < 10 && ((this.getLength() % 60) > 1)) {
+            realTime = sb.insert(2,'0').toString();
         }
         return realTime;
     }
@@ -48,8 +47,6 @@ public class Movie implements Comparable<Movie>{
         link += movie.searchedName();
         java.awt.Desktop.getDesktop().browse(URI.create(link));
     }
-
-
 
     // prints out movie length + movie name
     @Override
