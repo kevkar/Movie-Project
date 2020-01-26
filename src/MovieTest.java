@@ -7,6 +7,7 @@ public class MovieTest {
     public MovieTest() {    }
 
 
+    //adding movies test
     public void addMovieTest() {
         System.out.println("Adding five movies to DB: ");
         addMovies(testDB);
@@ -20,6 +21,7 @@ public class MovieTest {
 
     }
 
+    //removing movies test
     public void removeMovieTest() {
         addMovies(testDB);
         testDB.removeMovie("Titanic");
@@ -28,6 +30,7 @@ public class MovieTest {
 
     }
 
+    //sorting movies test
     public void sortMovieTest() {
         addMovies(testDB);
         System.out.println("List of movies after sorting: ");
@@ -35,6 +38,7 @@ public class MovieTest {
         System.out.println(testDB);
     }
 
+    //random movie test
     public void randomTest() {
         addMovies(testDB);
         System.out.println("Five random movies: ");
@@ -43,16 +47,18 @@ public class MovieTest {
         }
     }
 
+    //open movie website test
     public void movieSiteTest() throws IOException {
         addMovies(testDB);
         ArrayList<Movie> movies = testDB.getMovieList();
         System.out.println("Opening letterboxd for first three movies in database...");
         for (int i = 0; i < 3; i++) {
-            Movie movieOpenned = movies.get(i);
-            movieOpenned.openMovieSite(movieOpenned);
+            Movie movieOpened = movies.get(i);
+            movieOpened.openMovieSite(movieOpened);
         }
     }
 
+    //clear the database test
     public void removeAllTest() {
         addMovies(testDB);
         System.out.println("Removing all movies: ");
@@ -60,12 +66,12 @@ public class MovieTest {
         System.out.println("Printing DB: ");
         System.out.println(testDB);
         System.out.println("Adding one movie: ");
-        testDB.addMovie(new Movie("Hobo",145));
+        testDB.addMovie(new Movie("Once",145));
         System.out.println("Printing database: ");
         System.out.println(testDB);
-
     }
 
+    //adds movies to database for tests
     public void addMovies(MovieDB testDB) {
         testDB.addMovie(new Movie("Eternal Sunshine of the Spotless Mind",141));
         testDB.addMovie(new Movie("Caddy Shack", 98));

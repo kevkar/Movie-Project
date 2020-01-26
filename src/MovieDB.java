@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -30,7 +29,7 @@ public class MovieDB {
         }
     }
 
-    //adds movies using the text fields for the GUI
+    //adds movies using the text fields for the GUI and sorts movies
     public void addMovieGUI() {
         String text = MovieRecordListener.nameField().getText();
 
@@ -95,6 +94,7 @@ public class MovieDB {
             return movieList.get(pick);
     }
 
+    // prints the random movie
     public void printRandomMovie() {
         if (getMovieList().isEmpty()) {
             System.out.println("Movie database is empty!");
@@ -113,6 +113,7 @@ public class MovieDB {
         }
     }
 
+    // checks for duplicate movie
     public boolean movieDuplicate(String title) {
         for (Movie movie : movieList) {
             if (title.equals(movie.getName())) {

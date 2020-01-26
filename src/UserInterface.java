@@ -4,20 +4,13 @@ import javax.swing.*;
 public class UserInterface implements Runnable {
 
     private JFrame frame;
-    private MovieRecord movieRecord;
 
-    public UserInterface(MovieRecord movieRecord) {
-        this.movieRecord = movieRecord;
-    }
-
-    public UserInterface() {
-
-    }
+    public UserInterface() {    }
 
     @Override
     public void run() {
-        frame = new JFrame("Title");
-        frame.setPreferredSize(new Dimension(200, 100));
+        frame = new JFrame("Movie Database");
+        frame.setPreferredSize(new Dimension(600, 800));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,13 +36,13 @@ public class UserInterface implements Runnable {
         JButton clearDB = new JButton("Remove all Movies");
 
         JButton addButton = new JButton("Add!");
-        MovieRecordListener listener = new MovieRecordListener(movieRecord, nameField, idField);
+        MovieRecordListener listener = new MovieRecordListener(nameField, idField);
         addButton.addActionListener(listener);
-        randomMovieButton.addActionListener(new RandomMovieListener(movieRecord));
-        movieInfoButton.addActionListener(new MovieSiteListener(movieRecord));
-        removeButton.addActionListener(new MovieRemoveListener(movieRecord));
-        listMovies.addActionListener(new MovieListListener(movieRecord));
-        clearDB.addActionListener(new MovieClearAllListener(movieRecord));
+        randomMovieButton.addActionListener(new RandomMovieListener());
+        movieInfoButton.addActionListener(new MovieSiteListener());
+        removeButton.addActionListener(new MovieRemoveListener());
+        listMovies.addActionListener(new MovieListListener());
+        clearDB.addActionListener(new MovieClearAllListener());
 
         container.add(nameText);
         container.add(nameField);

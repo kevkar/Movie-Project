@@ -2,11 +2,10 @@ import java.awt.event.*;
 
 public class RandomMovieListener implements ActionListener {
 
-    private MovieRecord movieRecord;
-
-    public RandomMovieListener(MovieRecord movieRecord) {
+    public RandomMovieListener() {
     }
 
+    // shows random movie with GUI
     @Override
     public void actionPerformed(ActionEvent ae) {
         MovieDB db = MovieRecordListener.getDB();
