@@ -1,3 +1,7 @@
+package MovieUI;
+
+import Buttons.*;
+
 import java.awt.*;
 import javax.swing.*;
 

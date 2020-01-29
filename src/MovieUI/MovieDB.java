@@ -1,3 +1,7 @@
+package MovieUI;
+
+import Buttons.MovieRecordListener;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,7 +20,7 @@ public class MovieDB {
     // adds movies to the array list
     public void addMovie(Movie movie) {
         if (movieDuplicate(movie.getName())) {
-            System.out.println("Movie " + "'" + movie.getName() + "'" + " already in database.");
+            System.out.println("Movie " + '"' + movie.getName() + '"' + " already in database.");
         } else if (movie.getLength() > 400) {
             System.out.println("Why are you trying to watch a 6 hour movie c'mon.");
         } else if(movie.getLength() < 5) {
@@ -70,7 +74,7 @@ public class MovieDB {
         for (Movie movie : movieList) {
             if (movie.getName().equals(title)) {
                 movieList.remove(movie);
-                System.out.println("Movie " + '"' + title + '"' + " successfully removed.");
+                System.out.println("MMovie " + '"' + title + '"' + " successfully removed.");
                 return true;
             }
         }

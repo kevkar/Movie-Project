@@ -1,5 +1,8 @@
+package Buttons;
+
 import java.awt.event.*;
 import javax.swing.*;
+import MovieUI.*;
 
 public class MovieRecordListener implements ActionListener {
 

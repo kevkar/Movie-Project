@@ -1,3 +1,4 @@
+import MovieUI.UserInterface;
 import javax.swing.*;
 
 public class Main {

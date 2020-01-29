@@ -1,4 +1,7 @@
+package Buttons;
+
 import java.awt.event.*;
+import MovieUI.MovieDB;
 
 public class MovieSiteListener implements ActionListener {
 

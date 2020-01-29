@@ -1,3 +1,6 @@
+import MovieUI.Movie;
+import MovieUI.MovieDB;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
