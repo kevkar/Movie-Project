@@ -18,5 +18,6 @@ In the future, the program will be hooked up to a database for storage.
 
 All tests complete and the program runs fine on any desktop. Just clone the depository and fire it up on any Java IDE.
 
-For a picture of the UI, see MovieProgramGUI.jpg.
+User Interface:
 
+![](images/MovieProgramGUI.jpg)
