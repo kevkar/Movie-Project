@@ -1,6 +1,7 @@
 import MovieUI.UserInterface;
 import javax.swing.*;
 
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -9,8 +10,12 @@ public class Main {
         UserInterface ui = new UserInterface();
         SwingUtilities.invokeLater(ui);
 
+
+
+
 //        MovieTest movieTest = new MovieTest();
 //
+//        movieTest.textFileTest();
 //        movieTest.addMovieTest();
 //        movieTest.removeMovieTest();
 //        movieTest.sortMovieTest();

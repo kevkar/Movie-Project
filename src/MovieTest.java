@@ -1,17 +1,19 @@
 import MovieUI.Movie;
 import MovieUI.MovieDB;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MovieTest {
     private MovieDB testDB = new MovieDB();
 
-    public MovieTest() {    }
+    public MovieTest() throws IOException {    }
 
 
     //adding movies test
-    public void addMovieTest() {
+    public void addMovieTest() throws IOException{
         System.out.println("Adding five movies to DB: ");
         addMovies(testDB);
         System.out.println("Testing movie of length 0:");
@@ -21,11 +23,11 @@ public class MovieTest {
         System.out.println("Testing movie without a name: ");
         testDB.addMovie(new Movie("",85));
         System.out.println("Printing database: ");
-
+        System.out.println("Adding movies to file");
     }
 
     //removing movies test
-    public void removeMovieTest() {
+    public void removeMovieTest() throws IOException {
         addMovies(testDB);
         testDB.removeMovie("Titanic");
         System.out.println("With movie removed: ");
@@ -34,7 +36,7 @@ public class MovieTest {
     }
 
     //sorting movies test
-    public void sortMovieTest() {
+    public void sortMovieTest() throws Exception {
         addMovies(testDB);
         System.out.println("List of movies after sorting: ");
         testDB.sortMovies();
@@ -42,7 +44,7 @@ public class MovieTest {
     }
 
     //random movie test
-    public void randomTest() {
+    public void randomTest() throws Exception {
         addMovies(testDB);
         System.out.println("Five random movies: ");
         for (int i = 0; i < 5; i++) {
@@ -62,7 +64,7 @@ public class MovieTest {
     }
 
     //clear the database test
-    public void removeAllTest() {
+    public void removeAllTest() throws IOException{
         addMovies(testDB);
         System.out.println("Removing all movies: ");
         testDB.reset();
@@ -74,8 +76,31 @@ public class MovieTest {
         System.out.println(testDB);
     }
 
+    public void textFileTest() throws IOException {
+        addMovies(testDB);
+        File file = new File("MovieTestFile");
+        Scanner scanner = new Scanner(file);
+
+        while (scanner.hasNextLine()) {
+
+            String nextLine = scanner.nextLine();
+            int length = Integer.parseInt(nextLine.substring(0,nextLine.indexOf(" ")));
+            String title = nextLine.substring(nextLine.indexOf(" ") + 1);
+
+            testDB.addMovie(new Movie(title,length));
+
+            System.out.println(testDB);
+        }
+
+        scanner.close();
+
+        testDB.clearTextFile();
+
+        testDB.appendMoviesToFile();
+    }
+
     //adds movies to database for tests
-    public void addMovies(MovieDB testDB) {
+    public void addMovies(MovieDB testDB) throws IOException{
         testDB.addMovie(new Movie("Eternal Sunshine of the Spotless Mind",141));
         testDB.addMovie(new Movie("Caddy Shack", 98));
         testDB.addMovie(new Movie("Animal House",89));

@@ -3,6 +3,7 @@ package MovieUI;
 import Buttons.*;
 
 import java.awt.*;
+import java.io.IOException;
 import javax.swing.*;
 
 public class UserInterface implements Runnable {
@@ -14,19 +15,23 @@ public class UserInterface implements Runnable {
     //creates GUI with title, dimensions
     @Override
     public void run() {
-        frame = new JFrame("Movie Database");
+        frame = new JFrame("Movie Time");
         frame.setPreferredSize(new Dimension(500, 700));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        createComponents(frame.getContentPane());
+        try {
+            createComponents(frame.getContentPane());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         frame.pack();
         frame.setVisible(true);
     }
 
     //creates the grid and buttons
-    private void createComponents(Container container) {
+    private void createComponents(Container container) throws IOException {
 
         GridLayout layout = new GridLayout(6, 2);
         container.setLayout(layout);
@@ -62,6 +67,8 @@ public class UserInterface implements Runnable {
         container.add(movieInfoButton);
         container.add(listMovies);
         container.add(clearDB);
+
+        MovieRecordListener.textFileStuff();
     }
 
     public JFrame getFrame() {

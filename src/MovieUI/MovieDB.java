@@ -2,7 +2,7 @@ package MovieUI;
 
 import Buttons.MovieRecordListener;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -18,7 +18,9 @@ public class MovieDB {
     }
 
     // adds movies to the array list
-    public void addMovie(Movie movie) {
+    public void addMovie(Movie movie) throws IOException {
+
+
         if (movieDuplicate(movie.getName())) {
             System.out.println("Movie " + '"' + movie.getName() + '"' + " already in database.");
         } else if (movie.getLength() > 400) {
@@ -31,10 +33,11 @@ public class MovieDB {
             movieList.add(movie);
             System.out.println("Movie " + '"' + movie.getName() + '"' + " successfully added.");
         }
+
     }
 
     //adds movies using the text fields for the GUI and sorts movies
-    public void addMovieGUI() {
+    public void addMovieGUI() throws IOException {
         String text = MovieRecordListener.nameField().getText();
 
         if (text.isEmpty()) {
@@ -74,7 +77,7 @@ public class MovieDB {
         for (Movie movie : movieList) {
             if (movie.getName().equals(title)) {
                 movieList.remove(movie);
-                System.out.println("MMovie " + '"' + title + '"' + " successfully removed.");
+                System.out.println("Movie " + '"' + title + '"' + " successfully removed.");
                 return true;
             }
         }
@@ -83,11 +86,15 @@ public class MovieDB {
     }
 
     // sorts movies by length using comparable
-    public boolean sortMovies() {
+    public boolean sortMovies() throws IOException {
         if (movieList.size() > 0) {
             Collections.sort(movieList);
+            clearTextFile();
+            appendMoviesToFile();
             return true;
         }
+
+
         return false;
     }
 
@@ -140,6 +147,22 @@ public class MovieDB {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void appendMoviesToFile() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("MovieTestFile", true));
+        for (Movie film : movieList)
+        {
+            writer.append(film.getLength() + " " + film.getName() + "\n");
+        }
+
+        writer.close();
+    }
+
+    public void clearTextFile() throws FileNotFoundException {
+        PrintWriter writer = new PrintWriter("MovieTestFile");
+        writer.print("");
+        writer.close();
     }
 
 }
