@@ -14,7 +14,7 @@ There are six possible buttons on the GUI.
 5. Display a random movie
 6. Display all movies entered
 
-In the future, the program will be hooked up to a database for storage. 
+The program writes movies to a text file that you can edit and will make changes to the database.
 
 All tests complete and the program runs fine on any desktop. Just clone the depository and fire it up on any Java IDE.
 
