@@ -1,7 +1,7 @@
 #Readme
 
-This is the much inferior version I did before I learned anything about programming really. Go to movie project 2 for something better!
-
+**This is the much inferior version I did before I learned anything about programming really. Go to movie project 2 for something better!**
+https://github.com/kevkar/MovieProject2
 
 Movie Time 
 
