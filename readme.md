@@ -1,5 +1,8 @@
 #Readme
 
+This is the much inferior version I did before I learned anything about programming really. Go to movie project 2 for something better!
+
+
 Movie Time 
 
 This Java program arranges movies by their length to make it easier to figure out what to watch on any given night.
